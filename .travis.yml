@@ -1,0 +1,32 @@
+os: linux
+dist: xenial
+language: node_js
+node_js:
+  - "10"
+  - "12"
+  - "14"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - clang-3.5
+      - g++-4.8
+services:
+  - xvfb
+env:
+  global:
+    - DISPLAY=:99.0
+    - RANDOM_TESTS_REPEAT=100
+  jobs:
+    - CXX=g++-4.8 TEST_SUITE=unit
+jobs:
+  fast_finish: true
+  include:
+    - os: linux
+      node_js: "14"
+      env: CXX=g++-4.8 TEST_SUITE=lint
+    - os: linux
+      node_js: "14"
+      env: CXX=clang++ TEST_SUITE=unit
+script: npm run $TEST_SUITE
