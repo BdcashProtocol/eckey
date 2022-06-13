@@ -1,5 +1,5 @@
 {
-  "name": "@bdcash-protocol/eckey",
+  "name": "@bdeco/eckey",
   "version": "1.0.1",
   "description": "Handle private key and public keys associated with elliptic curve cryptography. Used with crypto currencies such as Bitcoin, Litecoin, Dogecoin, etc. Works in both Node.js and the browser.",
   "keywords": [
